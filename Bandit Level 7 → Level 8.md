@@ -1,0 +1,134 @@
+#linux #linux_commands #bandits #overthewire
+## Objective
+Find the password stored in `data.txt` next to the word **`millionth`**.
+## Steps
+
+### 1️⃣ Login to Bandit 7
+
+```bash
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+```
+
+Use the password from Level 6.
+
+### 2️⃣ Solve Using Different Methods
+
+#### **Method 1: Using `grep` (Easiest)**
+
+```bash
+grep millionth data.txt
+```
+
+- `grep <pattern> <file>` → Searches for a pattern in a file.
+    
+- Here, it looks for the word `millionth` and prints the matching line.
+    
+
+#### **Method 2: Using `sort` + `uniq`**
+
+```bash
+sort data.txt | uniq -u | grep millionth
+```
+
+- `sort data.txt` → Arranges lines in alphabetical order.
+    
+- `uniq -u` → Removes duplicate lines, keeping only unique ones.
+    
+- `grep millionth` → Searches for `millionth` in the filtered output.
+    
+
+#### **Method 3: Using `strings`**
+
+```bash
+strings data.txt | grep millionth
+```
+
+- `strings` extracts **printable** (ASCII) characters from binary files.
+    
+- `grep millionth` then searches for the required word.
+    
+
+#### **Method 4: Using `tr` (Translate/Remove Characters)**
+
+```bash
+tr -s ' ' '\n' < data.txt | grep millionth
+```
+
+- `tr -s ' ' '\n'` → Converts multiple spaces into single spaces and replaces spaces with new lines.
+    
+- This helps find words more accurately when searching.
+    
+
+#### **Method 5: Using `xxd` (Hex Dump)**
+
+```bash
+xxd data.txt | grep millionth
+```
+
+- `xxd` converts a file’s contents into a hex+ASCII format.
+    
+- `grep millionth` searches for `millionth` in the readable part of the hex dump.
+    
+
+#### **Method 6: Using `base64` Decoding**
+
+```bash
+base64 -d data.txt | grep millionth
+```
+
+- `base64 -d` decodes a file encoded in base64 (if applicable).
+    
+- `grep millionth` searches within the decoded content.
+    
+
+#### **Method 7: Using `tar` (Archive Check)**
+
+```bash
+tar -tf data.txt | grep millionth
+```
+
+- `tar -tf` lists contents of a tar archive (if `data.txt` were an archive).
+    
+- `grep millionth` checks if `millionth` appears in any filenames inside the archive.
+    
+
+#### **Method 8: Using `gzip`/`bzip2` (Compressed File Check)**
+
+```bash
+gzip -dc data.txt | grep millionth
+bzip2 -dc data.txt | grep millionth
+```
+
+- `gzip -dc` / `bzip2 -dc` → Decompresses the file and outputs readable content.
+    
+- `grep millionth` searches within the decompressed data.
+    
+
+#### **Method 9: Using `man` (Manual Reference for Grep)**
+
+```bash
+man grep
+```
+
+- `man <command>` opens the manual page for a command.
+    
+- This helps explore `grep` options for complex searches.
+    
+
+---
+
+## Key Takeaways
+
+- **`grep`** is the fastest way to find specific words in a file.
+    
+- **`sort` + `uniq`** can help filter unique entries.
+    
+- **Hex, compression, and encoding tools** can be useful in trickier scenarios.
+    
+- **Understanding how text processing tools work** makes problem-solving faster.
+    
+
+## Helpful Reading Material
+- [Piping and Redirection](https://ryanstutorials.net/linuxtutorial/piping.php)
+## Next
+[[Bandit Level 8 → Level 9]]

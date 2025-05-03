@@ -1,0 +1,26 @@
+[ THESE LABS ARE SUPPOSED TO BE DONE USING THE DESKPTOP VM OR ANYTHING ELSE. THEY DO NOT PROVIDE SHELLS TO CONNECT. ]
+
+## Level Goal
+
+The goal of this level is for you to log into the game using SSH. The host to which you need to connect is **bandit.labs.overthewire.org**, on port 2220. The username is **bandit0** and the password is **bandit0**. Once logged in, go to the [Level 1](https://overthewire.org/wargames/bandit/bandit1.html) page to find out how to beat Level 1.
+
+## Steps
+- Just ssh using this -
+
+```bash
+ssh bandit.labs.overthewire.org -p 2220 -l bandit0
+```
+
+- The parts of above command are described as follows -
+	- ssh - the command itself used for *secure shell* to establish a connection with any remote server which allows *ssh* connection
+	- URL - followed by ssh comes URL.
+	- -p : this is used to *specify the port* which has been *configured for ssh*, following which comes the port number itself. (-P : To pass on a list of ports to test ssh on.)
+	- -l : used to *specify username* which is pre-configured in the DB of server, containing authorized people's credentials. Followed by which comes the *username* itself.
+- Once inside, you are done at Level 0.
+
+## Helpful Reading Material
+
+- [Secure Shell (SSH) on Wikipedia](https://en.wikipedia.org/wiki/Secure_Shell)
+- [How to use SSH on wikiHow](https://www.wikihow.com/Use-SSH)
+
+Next -> [[Bandit Level 0 → Level 1]]

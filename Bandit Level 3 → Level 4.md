@@ -1,0 +1,21 @@
+#linux #linux_commands #bandits #overthewire
+## Level Goal
+The password for the next level is stored in a hidden file in the inhere directory.
+## Steps
+- Solving this one requires you to start having somewhat knowledge of core concepts behind the usage of commands on Linux terminal.
+- In order to list every possible thing existing in a directory (considering that it does exists, just hidden), you need to use
+```bash
+ls -a
+```
+for the purpose.
+- Now that you have listed the file, you can read it using:
+```bash
+cat "hidden_filename"
+```
+- And you shall have your password for next level.
+
+## Helpful Reading Material
+
+- [Read Hidden Files In Linux](https://search.brave.com/search?q=how+to+read+hidden+files+in+linux&source=web&summary=1&conversation=83450ef02e35eefcb35b88)
+
+NEXT -> [[Bandit Level 4 → Level 5]]

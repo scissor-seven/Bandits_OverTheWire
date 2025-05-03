@@ -1,0 +1,15 @@
+#linux #linux_commands #bandits #overthewire
+## Level Goal
+The password for the next level is stored in a file called **spaces in this filename** located in the home directory.
+## Steps
+- After logging in through *ssh*, you need to cat the file, but the *file name* has spaces!
+- Use the below command -
+
+		cat "file name"
+- Using double quotes in *cat* command helps reading files with spaces in their *file name*.
+[ Update 2025 - single quotes work as well. 👍]
+## Helpful Reading Material
+
+- [Google Search for “spaces in filename”](https://www.google.com/search?q=spaces+in+filename)
+
+NEXT -> [[Bandit Level 3 → Level 4]]
